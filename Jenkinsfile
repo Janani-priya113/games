@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     // Copy 'new' file into the Apache container
-                    sh 'docker cp new deploy_container:/var/www/html/new'
+                    sh 'docker cp new deploy_container:/var/www/html/index.html'
                     // Gracefully reload Apache without killing the container
                     sh 'docker exec deploy_container apachectl -k graceful || true'
                 }
